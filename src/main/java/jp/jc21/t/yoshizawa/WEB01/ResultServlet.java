@@ -34,7 +34,15 @@ public class ResultServlet extends HttpServlet {
 		try {
 			Language result = Json05.getLanguage(string);
 			String message = result.documents[0].detectedLanguage.name;
+			String l= result.documents[0].detectedLanguage.iso6391Name;
+			Setiment sen = Sentiment.getSentiment(string, l);
 			request.setAttribute("message", message);
+			System.out.print((String)sen.documents[0].confidenceScores.positive.toString());
+			System.out.print((String)sen.documents[0].confidenceScores.neutral.toString());
+			System.out.print((String)sen.documents[0].confidenceScores.negative.toString());
+			request.setAttribute("positive", sen.documents[0].confidenceScores.positive.toString());
+			request.setAttribute("neutral", sen.documents[0].confidenceScores.neutral.toString());
+			request.setAttribute("negative", sen.documents[0].confidenceScores.negative.toString());
 			request.getRequestDispatcher("/WEB-INF/result.jsp").forward(request, response);
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
@@ -56,7 +64,12 @@ public class ResultServlet extends HttpServlet {
 		try {
 			Language result = Json05.getLanguage(string);
 			String message = result.documents[0].detectedLanguage.name;
+			String l= result.documents[0].detectedLanguage.iso6391Name;
+			Setiment sen = Sentiment.getSentiment(string, l);
 			request.setAttribute("message", message);
+			request.setAttribute("positive", sen.documents[0].confidenceScores.positive.toString());
+			request.setAttribute("neutral", sen.documents[0].confidenceScores.neutral.toString());
+			request.setAttribute("negative", sen.documents[0].confidenceScores.negative.toString());
 			request.getRequestDispatcher("/WEB-INF/jsp/result.jsp").forward(request, response);
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
