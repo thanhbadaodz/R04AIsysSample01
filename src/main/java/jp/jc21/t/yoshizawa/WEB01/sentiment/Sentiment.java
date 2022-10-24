@@ -1,4 +1,4 @@
-package jp.jc21.t.yoshizawa.WEB01;
+package jp.jc21.t.yoshizawa.WEB01.sentiment;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -8,6 +8,8 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+
+import jp.jc21.t.yoshizawa.WEB01.WebApiConnector;
 
 public class Json05 {
 
@@ -23,7 +25,7 @@ public class Json05 {
 
 		String url = "https://r04jk3ab-text.cognitiveservices.azure.com//" + "text/analytics/v3.0/languages";
 		Map<String, String> map = new HashMap<>();
-		map.put("Ocp-Apim-Subscription-Key", "e4d081577c1246b19094fe32e2ef4dd5");
+		map.put("Ocp-Apim-Subscription-Key", "953ea066e1384085b69e5bd5cb3cd0");
 
 		Docs doc = new Docs();
 		doc.id = "1";
