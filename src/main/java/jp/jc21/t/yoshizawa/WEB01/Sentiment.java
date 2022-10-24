@@ -14,9 +14,9 @@ public class Sentiment {
 	public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
 		Setiment message = getSentiment("I bought a size S and it fit perfectly. I found the zipper a little bit difficult to get up & down due to the side rushing. The color and material are beautiful in person. Amazingly comfortable!","en");
 		if (message != null) {
-			System.out.println(message.documents[0].confidenceScores.positive);
-			System.out.println(message.documents[0].confidenceScores.neutral);
-			System.out.println(message.documents[0].confidenceScores.negative);
+			System.out.println("Positive:"+ message.documents[0].confidenceScores.positive);
+			System.out.println("Neutral:"+ message.documents[0].confidenceScores.neutral);
+			System.out.println("Negative:"+ message.documents[0].confidenceScores.negative);
 		}
 	}
 
